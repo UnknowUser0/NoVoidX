@@ -1,5 +1,10 @@
 # NoVoidX
 
+[![Modrinth Latest Version](https://img.shields.io/modrinth/v/T9JAwLIJ?label=Modrinth)](https://modrinth.com/plugin/novoidx)
+[![License](https://img.shields.io/github/license/SkyXserver/NoVoidX)](https://github.com/UnknowUser0/NoVoidX/blob/main/LICENSE)
+[![bStats Players](https://img.shields.io/bstats/players/26209)](https://bstats.org/plugin/bukkit/NoVoidX/26209)
+[![bStats Servers](https://img.shields.io/bstats/servers/26209)](https://bstats.org/plugin/bukkit/NoVoidX/26209)
+
 NoVoidX is a lightweight Minecraft plugin for Paper that prevents players from falling into the void by teleporting them automatically. The plugin is simple, efficient, and fully configurable.
 
 ## 🧩 Features

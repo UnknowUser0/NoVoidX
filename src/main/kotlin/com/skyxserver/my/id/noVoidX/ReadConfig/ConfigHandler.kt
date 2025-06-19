@@ -30,7 +30,7 @@ class ConfigHandler(private val plugin: NoVoidX) {
         // Load global settings
         pluginEnabled = config.getBoolean("enabled", true)
         checkUpdate = config.getBoolean("check-update", true)
-        loggingEnabled = config.getBoolean("log", false) // Baca pengaturan logging
+        loggingEnabled = config.getBoolean("log", false)
 
         // Load world-specific settings
         val worldsSection = config.getConfigurationSection("worlds")
@@ -86,7 +86,6 @@ class ConfigHandler(private val plugin: NoVoidX) {
      */
     fun getTeleportTarget(worldName: String): TeleportTarget? {
         val worldConfig = worldConfigs[worldName]
-        // UBAH: Tambahkan 'ratio' ke TeleportTarget
         return if (worldConfig != null) {
             TeleportTarget(worldConfig.targetWorld, worldConfig.targetY, worldConfig.ratio)
         } else {

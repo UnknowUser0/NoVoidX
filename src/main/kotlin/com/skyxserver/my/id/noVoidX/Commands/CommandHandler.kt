@@ -12,38 +12,27 @@ import java.util.ArrayList
 class CommandHandler(private val plugin: NoVoidX) : CommandExecutor, TabCompleter { // Implement TabCompleter
 
     override fun onCommand(sender: CommandSender, command: Command, label: String, args: Array<out String>): Boolean {
-        // Periksa apakah perintah utama adalah 'novoidx' atau aliasnya
         if (command.name.equals("novoidx", ignoreCase = true) || command.aliases.any { it.equals(label, ignoreCase = true) }) {
-            // Periksa apakah ada sub-perintah
             if (args.isNotEmpty()) {
-                // Tangani sub-perintah "reload"
                 if (args[0].equals("reload", ignoreCase = true)) {
-                    // Periksa izin untuk sub-perintah "reload"
                     if (!sender.hasPermission("novoidx.reload") && !sender.hasPermission("novoidx.admin")) {
-                        sender.sendMessage("${ChatColor.RED}Anda tidak memiliki izin untuk menggunakan perintah ini.")
+                        sender.sendMessage("${ChatColor.RED}You do not have permission to reload NoVoidX.")
                         return true
                     }
-
-                    // Eksekusi muat ulang konfigurasi
                     plugin.configHandler.loadConfig()
-                    sender.sendMessage("${ChatColor.GREEN}Konfigurasi NoVoidX berhasil dimuat ulang.")
-                    // Menggunakan logger plugin dari kelas utama NoVoidX
-                    plugin.logger.info("Konfigurasi NoVoidX berhasil dimuat ulang oleh ${sender.name}.")
+                    sender.sendMessage("${ChatColor.GREEN}NoVoidX configuration successfully reloaded.")
+                    plugin.logger.info("NoVoidX configuration successfully reloaded by ${sender.name}.")
                     return true
                 } else {
-                    // Jika sub-perintah tidak dikenali (misalnya /novoidx info, /novoidx help, dll.)
-                    // Tampilkan informasi plugin default untuk semua pemain
                     displayPluginInfo(sender)
                     return true
                 }
             } else {
-                // Jika tidak ada argumen (pemain mengetik hanya /novoidx)
-                // Tampilkan informasi plugin default untuk semua pemain
                 displayPluginInfo(sender)
                 return true
             }
         }
-        return false // Mengembalikan false jika perintah bukan 'novoidx' (tidak seharusnya terjadi jika terdaftar dengan benar)
+        return false
     }
 
     /**

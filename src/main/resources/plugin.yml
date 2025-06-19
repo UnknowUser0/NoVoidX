@@ -1,5 +1,5 @@
 name: NoVoidX
-version: 1.0.0
+version: 1.0.1
 main: com.skyxserver.my.id.noVoidX.NoVoidX
 api-version: '1.21'
 authors: [ SkyX ]

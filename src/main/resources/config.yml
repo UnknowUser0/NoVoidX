@@ -1,0 +1,28 @@
+# NoVoidX Configuration
+enabled: true
+
+# Check update on startup
+check-update: true
+
+worlds:
+  world:
+    enabled: true # Set to false to disable NoVoidX for this world
+    void-threshold: -128 # Y-coordinate threshold for void in the Overworld
+    target-world: world_nether
+    target-y: 512
+    ration: 8 # Ratio of teleportation to Nether world
+  world_the_end:
+    enabled: true
+    void-threshold: -64
+    target-world: world
+    target-y: 512
+    ration: 1 # Ratio of teleportation to Overworld
+
+# Duration of blindness effect in seconds after teleportation
+blindness-duration: 5
+
+# Cooldown in seconds before a player can be teleported again
+teleport-cooldown: 3
+
+# logging settings
+log: true # Enable or disable logging

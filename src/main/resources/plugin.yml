@@ -1,0 +1,31 @@
+name: NoVoidX
+version: 1.0.0
+main: com.skyxserver.my.id.noVoidX.NoVoidX
+api-version: '1.21'
+authors: [ SkyX ]
+website: skyxserver.my.id
+load: POSTWORLD
+libraries:
+  - org.jetbrains.kotlin:kotlin-stdlib-jdk8:2.2.0-RC3
+  - com.googlecode.json-simple:json-simple:1.1.1
+  - io.github.oshai:kotlin-logging:7.0.7
+  - ch.qos.logback:logback-classic:1.5.18
+
+commands:
+  novoidx:
+    description: NoVoidX plugin commands.
+    usage: /<command> [reload]
+    permission: novoidx.use
+    aliases: [nvx]
+permissions:
+  novoidx.use:
+    description: Allows use of the base /novoidx command.
+    default: true # True for players to see usage info, not necessarily to reload.
+  novoidx.reload:
+    description: Allows reloading the NoVoidX plugin configuration.
+    default: op
+  novoidx.admin:
+    description: Grants all NoVoidX administrative permissions.
+    default: op
+    children:
+      novoidx.reload: true

@@ -18,7 +18,7 @@ class NoVoidX : JavaPlugin() {
 
     lateinit var configHandler: ConfigHandler
     private val modrinthProjectId = "T9JAwLIJ"
-    private val currentVersion = "1.0.1"
+    private val currentVersion = "1.0.2"
 
     override fun onEnable() {
         // Save default config if it doesn't exist

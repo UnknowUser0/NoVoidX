@@ -24,8 +24,8 @@ dependencies {
     compileOnly("io.papermc.paper:paper-api:1.21-R0.1-SNAPSHOT")
     compileOnly("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     implementation("org.bstats:bstats-bukkit:3.1.0")
-    compileOnly("com.googlecode.json-simple:json-simple:1.1.1")
-    compileOnly("io.github.oshai:kotlin-logging:7.0.7")
+    implementation("com.googlecode.json-simple:json-simple:1.1.1")
+    implementation("io.github.oshai:kotlin-logging:7.0.7")
     compileOnly("ch.qos.logback:logback-classic:1.5.18")
 }
 
@@ -55,6 +55,7 @@ tasks.shadowJar {
     archiveFileName.set("${project.name}-all.jar")
 
     relocate("org.bstats", "com.skyxserver.my.id.novoidx.lib.bstats")
+    relocate("io.github.oshai", "com.skyxserver.my.id.novoidx.lib.kotlinlogging")
 
     exclude("kotlin/**")
     exclude("META-INF/kotlin*")

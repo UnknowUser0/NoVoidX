@@ -30,17 +30,13 @@ jobs:
     - name: Build ShadowJar
       run: ./gradlew shadowJar
 
-    - name: Upload plugin jar as GitHub Artifact
-      uses: actions/upload-artifact@v4
-      with:
-        name: NoVoidX-Plugin
-        path: build/libs/NoVoidX-all.jar
-
-    - name: Send .jar to Discord
+    - name: Send jar to Discord with versioned name
       env:
         DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
       run: |
-        echo "Mengirim file ke Discord..."
-        curl -F "payload_json={\"content\": \"✅ Build selesai! Plugin NoVoidX berhasil dibuat.\"}" \
-             -F "file=@build/libs/NoVoidX-all.jar" \
+        VERSION=$(./gradlew properties -q | grep "^version:" | awk '{ print $2 }')
+        JAR_NAME="NoVoidX-${VERSION}.jar"
+        echo "Uploading $JAR_NAME to Discord..."
+        curl -F "payload_json={\"content\": \"✅ Build NoVoidX ${VERSION} selesai!\"}" \
+             -F "file=@build/libs/${JAR_NAME}" \
              $DISCORD_WEBHOOK

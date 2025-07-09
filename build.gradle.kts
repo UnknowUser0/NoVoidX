@@ -52,7 +52,7 @@ tasks.jar {
 }
 
 tasks.shadowJar {
-    archiveFileName.set("${project.name}-all.jar")
+    archiveFileName.set("NoVoidX-${project.version}.jar")
 
     relocate("org.bstats", "com.skyxserver.my.id.novoidx.lib.bstats")
     relocate("io.github.oshai", "com.skyxserver.my.id.novoidx.lib.kotlinlogging")
